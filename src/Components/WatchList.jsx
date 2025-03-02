@@ -3,7 +3,12 @@ import React from 'react'
 function WatchList() {
     return (
         <>
-
+            {/* Genre Part */}
+            <div className='flex justify-center flex-wrap p-4' >
+                <div className=' flex justify-center items-center h-[2rem] w-[9rem]  bg-gray-400/50  rounded-xl text-white font-bold hover:cursor-pointer mx-4' >All Genres</div>
+                <div className=' flex justify-center items-center h-[2rem] w-[9rem]  bg-blue-400  rounded-xl text-white font-bold hover:cursor-pointer mx-4' >Action</div>
+                <div className=' flex justify-center items-center h-[2rem] w-[9rem]  bg-gray-400/50  rounded-xl text-white font-bold hover:cursor-pointer mx-4' >Drama</div>
+            </div>
             <div className='flex justify-center items-center my-4' >
                 <input type="text" className='h-[2rem] w-[14rem] rounded-md p-2 bg-gray-200 outline-none' placeholder='Search for a movie' />
             </div>
@@ -26,10 +31,12 @@ function WatchList() {
                                     This Movie
                                 </div>
                             </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td> 8.5</td>
+                            <td>9</td>
+                            <td>Action</td>
+                            <td className='text-red-700 hover:cursor-pointer'  >Delete</td>
                         </tr>
+
 
                     </tbody>
                 </table>
