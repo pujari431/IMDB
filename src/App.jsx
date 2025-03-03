@@ -11,14 +11,21 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 function App() {
   // it is empty array initially. After user clicks on emoji that should be stored in the array
   let [watchlist, setwatchList] = useState([])
+  // This state we have created here bcoz it can be accessed by any component
 
   let handleAddtoWatchList = (movieObj) => {
     // Here ...watchList represents the previous one and  we are adding
     // new movie to
-    let newwatchList = [...watchlist, movie]
+    let newwatchList = [...watchlist, movieObj]
     setwatchList(newwatchList)
     console.log(newwatchList)
 
+  }
+  let handleRemoveWatchList = (movieObj) => {
+    let filteredWatchlist = watchlist.filter((movie) => {
+      return movie.id != movieObj.id
+    })
+    setwatchList(filteredWatchlist)
   }
 
   return (
@@ -27,7 +34,7 @@ function App() {
         <Navbar />
         <Routes>
 
-          <Route path='/' element={<><Banner /><Movies handleAddtoWatchList={handleAddtoWatchList} /></>} />
+          <Route path='/' element={<><Banner /><Movies handleAddtoWatchList={handleAddtoWatchList} handleRemoveWatchList={handleRemoveWatchList} watchlist={watchlist} /></>} />
           <Route path='/watchlist' element={<WatchList />} />
 
 

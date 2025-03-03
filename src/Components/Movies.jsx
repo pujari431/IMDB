@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import MovieCard from './MovieCard';
 import axios from 'axios';
 import Pagination from './Pagination';
+import WatchList from './WatchList';
 
-function Movies({ handleAddtoWatchList }) {
+function Movies({ handleAddtoWatchList, handleRemoveWatchList, watchlist }) {
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
     const [pageNo, setpageNo] = useState(1);
@@ -56,6 +57,8 @@ function Movies({ handleAddtoWatchList }) {
                         poster_path={movieObj.poster_path}
                         name={movieObj.original_title}
                         handleAddtoWatchList={handleAddtoWatchList}
+                        handleRemoveWatchList={handleRemoveWatchList}
+                        watchlist={watchlist}
                     />
                 ))}
             </div>
